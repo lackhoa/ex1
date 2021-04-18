@@ -12,3 +12,9 @@ jobs:
     steps:
     - name: Hello world
       run: echo Hello world
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT }}
+    - name: do something
+      run: cat ./.git/config
