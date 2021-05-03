@@ -10,8 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install kustomize
+      uses: imranismail/setup-kustomize@v1
+      with:
+        kustomize-version: "3.9.4"
     - name: Hello world
-      run: echo Hello world
+      run: kustomize
     - name: Checkout repo
       uses: actions/checkout@v2
       with:
