@@ -22,3 +22,5 @@ jobs:
         token: ${{ secrets.PAT }}
     - name: do something
       run: echo ${GITHUB_SHA::8}
+    - name: try docker-compose
+      run: docker-compose --version
