@@ -21,4 +21,4 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
     - name: do something
-      run: cat ./.git/config
+      run: echo ${GITHUB_SHA::8}
