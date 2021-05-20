@@ -10,17 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install kustomize
-      uses: imranismail/setup-kustomize@v1
-      with:
-        kustomize-version: "3.9.4"
-    - name: Hello world
-      run: kustomize
     - name: Checkout repo
       uses: actions/checkout@v2
       with:
         token: ${{ secrets.PAT }}
-    - name: do something
-      run: echo ${GITHUB_SHA::8}
-    - name: try docker-compose
-      run: docker-compose --version
+    - name: My echo
+      run: |
+        chmod +x ./my-echo.sh
+        cat my-echo.sh
+        file my-echo.sh
+        ./my-echo.sh first second
+    - name: My echo two
+      run: |
+        cat > my-echo2.sh <<-EOF
+        echo args: $@
+        echo first: $1
+        EOF
+
+        cat my-echo2.sh
+        file my-echo2.sh
+
+        chmod +x ./my-echo2.sh
+        ./my-echo2.sh third fourth
