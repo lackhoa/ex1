@@ -15,6 +15,6 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
     - name: pwd
-      run: pwd
+      run: echo "Hello world" > /tmp/hello
     - name: hash
-      run: echo ${{ hashFiles('/home/runner/work/ex1/ex1') }}
+      run: echo ${{ hashFiles('/tmp/hello') }}
