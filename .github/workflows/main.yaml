@@ -7,8 +7,9 @@ on:
 
 jobs:
   build:
+    outputs:
+      key: val
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repo
       uses: actions/checkout@v2
@@ -18,3 +19,10 @@ jobs:
       run: echo "Hello world" > /tmp/hello
     - name: hash
       run: echo $(sha1sum /tmp/hello)
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo
+      run: echo needs.build.outputs.val
