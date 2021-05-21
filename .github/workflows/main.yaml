@@ -14,21 +14,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         token: ${{ secrets.PAT }}
-    - name: My echo
-      run: |
-        chmod +x ./my-echo.sh
-        cat my-echo.sh
-        file my-echo.sh
-        ./my-echo.sh first second
-    - name: My echo two
-      run: |
-        cat > my-echo2.sh <<-EOF
-        echo args: $@
-        echo first: $1
-        EOF
-
-        cat my-echo2.sh
-        file my-echo2.sh
-
-        chmod +x ./my-echo2.sh
-        ./my-echo2.sh third fourth
+    - name: pwd
+      run: pwd
+    - name: hash
+      run: echo ${{ hashFiles('/home/runner/work/ex1/ex1') }}
