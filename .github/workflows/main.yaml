@@ -25,4 +25,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: echo
-      run: echo needs.build.outputs.val
+      run: echo ${{ needs.build.outputs.key }}
