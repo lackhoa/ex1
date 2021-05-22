@@ -17,4 +17,6 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
     - name: echo
-      run: echo ${{ join(fromJson('[1, 2, 3]'), '\n' ) }}
+      run: echo X=THAT >> ${{ GITHUB_ENV }}
+    - name echo again
+      run: echo $X
