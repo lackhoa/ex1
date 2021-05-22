@@ -16,7 +16,17 @@ jobs:
       if: false
       with:
         token: ${{ secrets.PAT }}
-    - name: echo
-      run: echo X=THAT >> ${GITHUB_ENV}
-    - name: echo again
-      run: echo $X
+
+    - name: tar one
+      run: |
+        touch a
+        touch b
+        GZIP=-n tar -cf ab.tar.gz a b
+        sha1sum ab.tar.gz
+
+    - name: tar two
+      run: |
+        touch a
+        touch b
+        GZIP=-n tar -cf ab-two.tar.gz a b
+        sha1sum ab-two.tar.gz
