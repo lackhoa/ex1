@@ -18,4 +18,4 @@ jobs:
     - name: echo
       run: echo "Hello world" > /tmp/hello
     - name: hash
-      run: echo $(sha1sum -q /tmp/hello)
+      run: echo $(sha1sum --quiet /tmp/hello)
