@@ -16,9 +16,6 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
     - name: echo
-      id: echo
-      if: false
       run: echo "Hello world" > /tmp/hello
     - name: hash
-      run: echo $(sha1sum /tmp/hello)
-      if: steps.echo.outcome == 'skipped'
+      run: echo $(sha1sum -q /tmp/hello)
