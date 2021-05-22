@@ -17,4 +17,4 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
     - name: echo
-      run: echo ${{ join( [1, 2, 3], '\n' ) }}
+      run: echo ${{ join(fromJson('[1, 2, 3]'), '\n' ) }}
