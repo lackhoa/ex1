@@ -21,12 +21,12 @@ jobs:
       run: |
         touch a
         touch b
-        GZIP=-n tar -czf ab.tar.gz a b
+        tar -I 'gzip -n' -czf ab.tar.gz a b
         sha1sum ab.tar.gz
 
     - name: tar two
       run: |
         touch a
         touch b
-        GZIP=-n tar -czf ab-two.tar.gz a b
+        tar -I 'gzip -n' -czf ab-two.tar.gz a b
         sha1sum ab-two.tar.gz
