@@ -17,6 +17,4 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
     - name: echo
-      run: echo "Hello world" > /tmp/hello
-    - name: hash
-      run: echo $(sha1sum /tmp/hello | cut -d ' ' -f 1)
+      run: echo ${{ join( [1, 2, 3], '\n' ) }}
