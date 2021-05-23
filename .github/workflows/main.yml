@@ -7,8 +7,6 @@ on:
 
 jobs:
   build:
-    outputs:
-      key: ${{ true == true }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
@@ -25,7 +23,26 @@ jobs:
       if: always()
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        name: Test XYZ
+        name: xyz
         conclusion: ${{ job.status }}
         output: |
           {"summary":"${{ steps.test.outcome }}"}
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      if: false
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT }}
+
+    - name: Wait on tests
+      uses: lewagon/wait-on-check-action@v0.2
+      with:
+        ref: ${{ github.ref }}
+        check-name: xyz
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Now this job can run
+      run: echo Waiting is complete
