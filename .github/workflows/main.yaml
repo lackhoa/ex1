@@ -17,16 +17,10 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
 
-    - name: tar one
-      run: |
-        touch a
-        touch b
-        tar -I 'gzip -n' -cf ab.tar.gz a b
-        sha1sum ab.tar.gz
+    - name: one
+      id: one
+      run: exit 1
 
-    - name: tar two
-      run: |
-        touch a
-        touch b
-        tar -I 'gzip -n' -cf ab-two.tar.gz a b
-        sha1sum ab-two.tar.gz
+    - name: two
+      if: steps.one.outcome == 'failure'
+      run: echo This runs on failure
