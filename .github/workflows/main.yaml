@@ -13,15 +13,8 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v2
-      if: false
       with:
         token: ${{ secrets.PAT }}
 
-    - name: one
-      run: |
-        echo X=1 >> ${GITHUB_ENV}
-        echo $X
-        echo ${{ env.X }}
-
-    - name: two
-      run: echo $X
+    - name: try out action
+      uses: lackhoa/ex1@master

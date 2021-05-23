@@ -1,0 +1,9 @@
+name: glow-builder-common
+description: Glow builder common steps
+runs:
+  using: "composite"
+  steps:
+    - run: echo Hello ${{ inputs.who-to-greet }}.
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+    - run: ${{ github.action_path }}/goodbye.sh
