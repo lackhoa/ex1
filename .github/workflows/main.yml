@@ -19,14 +19,15 @@ jobs:
       id: test
       run: echo hello this is a test
 
-    - uses: LouisBrunner/checks-action@v1.1.1
+    - name: Create a check for glow builder jobs to continue
       if: always()
+      uses: LouisBrunner/checks-action@v1.1.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        name: xyz
+        name: build-dependencies-status
         conclusion: ${{ job.status }}
         output: |
-          {"summary":"${{ steps.test.outcome }}"}
+          {"summary":"Status of the `build-dependencies` job"}
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,7 +42,7 @@ jobs:
       uses: lewagon/wait-on-check-action@v0.2
       with:
         ref: ${{ github.ref }}
-        check-name: xyz
+        check-name: build-dependencies-status
         repo-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Now this job can run
