@@ -17,4 +17,4 @@ jobs:
         token: ${{ secrets.PAT }}
 
     - name: try out action
-      uses: lackhoa/ex1@master
+      uses: lackhoa/ex1/.github/actions/glow-builder-common@master
