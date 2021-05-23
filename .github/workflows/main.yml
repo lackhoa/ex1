@@ -17,8 +17,9 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
 
-    - uses: actions/create-outputs@v0.0.0-fake
+    - name: test
       id: test
+      run: echo hello this is a test
 
     - uses: LouisBrunner/checks-action@v1.1.1
       if: always()
