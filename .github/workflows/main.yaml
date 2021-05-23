@@ -18,7 +18,10 @@ jobs:
         token: ${{ secrets.PAT }}
 
     - name: one
-      run: export X=1 && echo $X
+      run: |
+        echo X=1 >> ${GITHUB_ENV}
+        echo $X
+        echo ${{ env.X }}
 
     - name: two
       run: echo $X
