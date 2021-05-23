@@ -28,4 +28,4 @@ jobs:
         name: Test XYZ
         conclusion: ${{ job.status }}
         output: |
-          {"summary":${{ steps.test.outcome }}}
+          {"summary":"${{ steps.test.outcome }}"}
