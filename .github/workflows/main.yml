@@ -19,11 +19,14 @@ jobs:
       run: echo Hello world
 
     - name: Step 1
-      run: exit 1
+      run:
+        echo This runs
+        cat file-that-does-not-exist
+        echo This will never run  # Execution won't reach here
 
     - name: Step 2
-      run: echo This will never run
+      run: echo This will never run  # Step is skipped
 
     - name: Step 3
       if: always()
-      run: echo This still runs
+      run: echo I always run  # This step runs because of the special `if` key
