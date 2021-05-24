@@ -19,7 +19,7 @@ jobs:
       run: echo Hello world
 
     - name: Step 1
-      run:
+      run: |
         echo This runs
         cat file-that-does-not-exist
         echo This will never run  # Execution won't reach here
