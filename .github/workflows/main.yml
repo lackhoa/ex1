@@ -16,17 +16,19 @@ jobs:
         token: ${{ secrets.PAT }}
 
     - name: Step 0
-      run: echo Hello world
+      run: echo Hello world # Echoes 'Hello world'
 
     - name: Step 1
       run: |
-        echo This runs
-        cat file-that-does-not-exist
-        echo This will never run  # Execution won't reach here
+        echo This runs                # Echoes 'This run'
+        cat file-that-does-not-exist  # 'cat: file-that-does-not-exist: No such file or directory'
+        echo This will never run      # Execution won't reach here
 
     - name: Step 2
-      run: echo This will never run  # Step is skipped
+      run: echo This will never run  # Step is skipped because one of the previous steps fail
 
     - name: Step 3
-      if: always()
-      run: echo I always run  # This step runs because of the special `if` key
+      if: |
+        ${{ true
+            || false}}
+      run: echo I always run  # Echoes 'I always run' step runs because of the special `if` key
