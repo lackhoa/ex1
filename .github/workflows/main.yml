@@ -15,35 +15,19 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
 
-    - name: test
-      id: test
-      run: echo hello this is a test
+    - name: Step 0
+      run: |
+        export A=1
 
-    - name: Create a check for glow builder jobs to continue
-      if: always()
-      uses: LouisBrunner/checks-action@v1.1.1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        name: build-dependencies-status
-        conclusion: ${{ job.status }}
-        output: |
-          {"summary":"Status of the `build-dependencies` job"}
+    - name: Step 1
+      run: |
+        export X=1
+        echo X=${X} >> ${GITHUB_ENV}
+        echo ${{ env.X }}
 
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repo
-      if: false
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.PAT }}
-
-    - name: Wait on tests
-      uses: lewagon/wait-on-check-action@v0.2
-      with:
-        ref: ${{ github.ref }}
-        check-name: build-dependencies-status
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Now this job can run
-      run: echo Waiting is complete
+    - name: Step 2
+      run: |
+        echo ${A}
+        echo ${{ env.A }}
+        echo ${X}
+        echo ${{ env.X }}
