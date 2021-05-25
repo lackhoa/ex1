@@ -17,4 +17,4 @@ jobs:
 
     - name: Step 0
       run: |
-        echo $HOME
+        sudo echo hello world
