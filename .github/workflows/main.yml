@@ -17,9 +17,4 @@ jobs:
 
     - name: Step 0
       run: |
-        echo this is cd
-        cd ~
-        echo this is pwd
-        pwd
-        echo this is ls
-        ls
+        echo $HOME
