@@ -17,4 +17,4 @@ jobs:
 
     - name: Step 0
       run: |
-        sudo echo hello world
+        echo ${{github.event.head_commit.message}}
