@@ -18,22 +18,21 @@ on:
 jobs:
   prebuild:
     runs-on: ubuntu-latest
-    if: false
     steps:
     - name: echo hello
       run: echo hello
     - name: always
       if: always()
       run: echo hello
+    - name: fail
+      run: exit 1
     outputs:
       status: ${{ job.status }}
 
   build:
     runs-on: ubuntu-latest
     needs: prebuild
-    if: |
-      always() && (needs.prebuild.outputs.status == 'success' ||
-                   needs.prebuild.outputs.status == 'skipped')
+    if: always()
     steps:
     - name: echo
       run: echo ${{ needs.prebuild.outputs.status }}
