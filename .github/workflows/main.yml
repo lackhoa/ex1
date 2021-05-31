@@ -32,5 +32,4 @@ jobs:
     - name: multiline
       run: |
         echo ${{ true &&
-                 (false &&
-                  true)  }}
+                 false  }}
