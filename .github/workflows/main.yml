@@ -32,7 +32,7 @@ jobs:
                    needs.prebuild.outputs.job_status == 'skipped')
     steps:
     - name: echo
-      run: echo ${{ needs.prebuild.job_status }}
+      run: echo ${{ needs.prebuild.outputs.job_status }}
 
     - name: Checkout repo
       if: false
@@ -47,9 +47,9 @@ jobs:
 
     - name: multiline
       run: |
-        echo "X=${{ true &&
-                    (false &&
-                     true) }}" >> ${GITHUB_ENV}
+        echo X=${{ true &&
+                   (false &&
+                    true) }} >> ${GITHUB_ENV}
 
     - name: use x
       run: echo $X
