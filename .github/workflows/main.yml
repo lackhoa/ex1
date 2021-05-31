@@ -29,10 +29,10 @@ jobs:
     needs: prebuild
     if: |
       always() && (needs.prebuild.outputs.status == 'success' ||
-                   needs.prebuild.outputs.job_status == 'skipped')
+                   needs.prebuild.outputs.status == 'skipped')
     steps:
     - name: echo
-      run: echo ${{ needs.prebuild.outputs.job_status }}
+      run: echo ${{ needs.prebuild.outputs.status }}
 
     - name: Checkout repo
       if: false
@@ -42,7 +42,7 @@ jobs:
 
     - name: Step 0
       run: |
-        echo ${{github.event.head_commit.message}}
+        echo ${{ github.event.head_commit.message }}
 
 
     - name: multiline
