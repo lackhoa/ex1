@@ -6,13 +6,14 @@ on:
       - '**'
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      gha_skip_deps:
+        description: '(Unsafe) Skip dependencies compilation: `true` / `false`'
         required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'
-
+        default: 'false'
+      gha_rebuild_deps:
+        description: 'Rebuild dependencies without cache: `true` / `false`'
+        required: true
+        default: 'false'
 
 jobs:
   build:
