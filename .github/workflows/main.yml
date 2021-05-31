@@ -27,3 +27,9 @@ jobs:
     - name: Step 0
       run: |
         echo ${{github.event.head_commit.message}}
+
+
+    - name: multiline
+      run: |
+        echo ${{ true ||
+        false}}
