@@ -31,9 +31,9 @@ jobs:
 
     - name: multiline
       run: |
-        echo X=${{ true &&
-                 (false &&
-                  true) }} >> ${GITHUB_ENV}
+        echo "X=${{ true &&
+                    (false &&
+                     true) }}" >> ${GITHUB_ENV}
 
     - name: use x
       run: echo $X
