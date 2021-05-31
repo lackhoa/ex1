@@ -20,9 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: echo hello
-      run: echo ${{ job.status }} >> ${GITHUB_ENV}
-  outputs:
-    status: ${{ job.status }}
+      run: echo hello
+    outputs:
+      status: ${{ job.status }}
 
   build:
     runs-on: ubuntu-latest
