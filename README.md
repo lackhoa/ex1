@@ -8,4 +8,4 @@ This is good with master
 This is still good with master
 This is still pretty good with master
 bad with master
-
+dev should always be from master
