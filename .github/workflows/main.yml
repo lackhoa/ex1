@@ -34,8 +34,5 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Checkout master
-        run: git checkout master
-
       - name: Check whether current commit is from master
-        run: git merge-base --is-ancestor HEAD master
+        run: git merge-base --is-ancestor HEAD origin/master
