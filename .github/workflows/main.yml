@@ -19,16 +19,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
-      # - name: Checkout master for reference
-      #   uses: actions/checkout@v2
-      #   with:
-      #     fetch-depth: 0
-      #     ref: master
-
-      # - name: git log
-      #   run: git log
-
       - name: Checkout current branch
         uses: actions/checkout@v2
         with:
