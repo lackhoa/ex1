@@ -25,13 +25,16 @@ jobs:
           fetch-depth: 0
           ref: master
 
+      - name: git log
+        run: git log
+
+      - name: Checkout master
+        run: git checkout master
+
       - name: Checkout current branch
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
-      - name: Checkout master
-        run: git checkout master
 
       - name: Check whether current commit is from master
         run: git merge-base --is-ancestor HEAD master
