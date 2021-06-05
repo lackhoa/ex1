@@ -16,38 +16,23 @@ on:
         default: 'false'
 
 jobs:
-  prebuild:
-    runs-on: ubuntu-latest
-    steps:
-    - name: echo hello
-      run: echo hello
-    - name: always
-      if: always()
-      run: echo hello
-    - name: fail
-      run: exit 1
-    outputs:
-      status: ${{ job.status }}
-
   build:
     runs-on: ubuntu-latest
-    needs: prebuild
-    if: always()
     steps:
-    - name: echo
-      run: echo ${{ needs.prebuild.outputs.status }}
 
-    - name: Checkout repo
-      if: false
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.PAT }}
+      # - name: Checkout master for reference
+      #   uses: actions/checkout@v2
+      #   with:
+      #     fetch-depth: 0
+      #     ref: master
 
-    - name: multiline
-      run: |
-        echo X=${{ true &&
-                   (false &&
-                    true) }} >> ${GITHUB_ENV}
+      # - name: git log
+      #   run: git log
 
-    - name: use x
-      run: echo $X
+      - name: Checkout current branch
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Check whether current commit is from master
+        run: git merge-base --is-ancestor HEAD origin/master
