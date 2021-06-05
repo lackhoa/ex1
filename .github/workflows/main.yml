@@ -27,6 +27,8 @@ jobs:
 
       - name: Checkout current branch
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Check whether current commit is from master
         run: git merge-base --is-ancestor HEAD master
