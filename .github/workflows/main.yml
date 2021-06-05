@@ -19,22 +19,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master for reference
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          ref: master
 
-      - name: git log
-        run: git log
+      # - name: Checkout master for reference
+      #   uses: actions/checkout@v2
+      #   with:
+      #     fetch-depth: 0
+      #     ref: master
 
-      - name: Checkout master
-        run: git checkout master
+      # - name: git log
+      #   run: git log
 
       - name: Checkout current branch
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Checkout master
+        run: git checkout master
 
       - name: Check whether current commit is from master
         run: git merge-base --is-ancestor HEAD master
