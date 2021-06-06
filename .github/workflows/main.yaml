@@ -24,5 +24,5 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check whether current commit is from master
-        run: git merge-base --is-ancestor HEAD origin/master
+      - name: Something about python
+        run: which python
