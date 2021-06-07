@@ -24,8 +24,5 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: python
-        run: python --version
-
-      - name: python3
-        run: python3 --version
+      - name: gh
+        run: gh
