@@ -25,4 +25,4 @@ jobs:
           fetch-depth: 0
 
       - name: gh
-        run: gh
+        run: echo ${{ github.job }}
