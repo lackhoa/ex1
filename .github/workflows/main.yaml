@@ -24,8 +24,5 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: github job
-        run: echo $GITHUB_JOB
-
-      - name: github ref
-        run: echo $GITHUB_REF
+      - name: ccache
+        run: ccache
