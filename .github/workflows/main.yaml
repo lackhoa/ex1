@@ -24,5 +24,5 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: columns
-        run: echo $COLUMNS
+      - name: sha1sum
+        run: echo hello | sha1sum | cut -f 1 -d ' '
