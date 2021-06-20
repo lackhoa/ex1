@@ -17,12 +17,22 @@ on:
 
 jobs:
   build:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
+      - name: sha1sum
+        run: echo hello | sha1sum | cut -f 1 -d ' '
+
+  deploy:
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v2
 
       - name: sha1sum
         run: echo hello | sha1sum | cut -f 1 -d ' '
