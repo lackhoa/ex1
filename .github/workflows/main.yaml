@@ -28,7 +28,7 @@ jobs:
 
   deploy:
     needs: build
-    if: needs.build.status == 'skipped'
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch
