@@ -23,11 +23,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: sha1sum
-        run: echo hello | sha1sum | cut -f 1 -d ' ' && exit 1
+        run: echo hello | sha1sum | cut -f 1 -d ' '
 
   deploy:
     needs: build
-    if: always() && ((needs.build.result == 'skipped') || (needs.build.result == 'success'))
+    if: |
+      always()
+      && ((needs.build.result == 'skipped') || (needs.build.result == 'success'))
     runs-on: ubuntu-latest
     steps:
       - name: echo
