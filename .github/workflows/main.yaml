@@ -35,4 +35,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: sha1sum
-        run: echo ${{ needs.build }}
+        run: echo ${{ toJSON(needs.build) }}
