@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    if: true
+    if: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch
@@ -28,11 +28,11 @@ jobs:
 
   deploy:
     needs: build
-    if: always()
+    if: needs.build.status == 'skipped'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch
         uses: actions/checkout@v2
 
       - name: sha1sum
-        run: echo hello | sha1sum | cut -f 1 -d ' '
+        run: echo ${{ needs.build }}
