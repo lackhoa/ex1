@@ -19,10 +19,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout current branch
-        uses: actions/checkout@v2
-      - name: sha1sum
-        run: echo hello | sha1sum | cut -f 1 -d ' ' && exit 1
+      - name: making files
+        run: |
+          mkdir dir
+          mkdir dir/d
+          touch dir/d/a
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          path: ${{ github.workspace }}/dir/d/a
 
   deploy:
     needs: build
@@ -31,5 +36,7 @@ jobs:
       && ((needs.build.result == 'skipped') || (needs.build.result == 'success'))
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        run: echo "${{ toJSON(needs.build) }}"
+      - name: download artifact
+        uses: actions/download-artifact@v2
+      - name: stuff
+        run: ls -R dir
