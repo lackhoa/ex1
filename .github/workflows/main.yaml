@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: sha1sum
-        run: echo hello | sha1sum | cut -f 1 -d ' '
+        run: echo hello | sha1sum | cut -f 1 -d ' ' && exit 1
 
   deploy:
     needs: build
