@@ -28,7 +28,7 @@ jobs:
 
   deploy:
     needs: build
-    if: (needs.build.result == 'skipped') || (needs.build.result == 'success')
+    if: always() && ((needs.build.result == 'skipped') || (needs.build.result == 'success'))
     runs-on: ubuntu-latest
     steps:
       - name: echo
