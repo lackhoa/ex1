@@ -15,9 +15,9 @@ jobs:
 
       - name: gha API
         run: |
+          export HEAD_COMMIT_ID=${{ toJSON(github.event.head_commit.id) }}
           gh api repos/lackhoa/ex1/actions/runs | jq '
               .workflow_runs[]
               | select(.head_commit.id == env.HEAD_COMMIT_ID)'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HEAD_COMMIT_ID: ${{ toJSON(github.event.head_commit.id) }}
