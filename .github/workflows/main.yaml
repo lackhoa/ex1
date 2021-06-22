@@ -1,19 +1,9 @@
-name: Test workflow
+name: Main
 
 on:
   push:
     branches:
       - '**'
-  workflow_dispatch:
-    inputs:
-      gha_skip_deps:
-        description: '(Unsafe) Skip dependencies compilation: `true` / `false`'
-        required: true
-        default: 'false'
-      gha_rebuild_deps:
-        description: 'Rebuild dependencies without cache: `true` / `false`'
-        required: true
-        default: 'false'
 
 jobs:
   build:
@@ -24,19 +14,3 @@ jobs:
           mkdir dir
           mkdir dir/d
           touch dir/d/a
-      - name: upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          path: ${{ github.workspace }}/dir/d/a
-
-  deploy:
-    needs: build
-    if: |
-      always()
-      && ((needs.build.result == 'skipped') || (needs.build.result == 'success'))
-    runs-on: ubuntu-latest
-    steps:
-      - name: download artifact
-        uses: actions/download-artifact@v2
-      - name: stuff
-        run: ls -R dir
