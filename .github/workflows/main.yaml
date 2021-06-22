@@ -21,6 +21,7 @@ jobs:
               | select(.head_commit.id == env.HEAD_COMMIT_ID)
               | select(.name == "Two")
               | .id')
+          echo "Rerunning $RUN_TWO_ID"
           gh run rerun $RUN_TWO_ID
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
