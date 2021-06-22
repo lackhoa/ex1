@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: checkout repo
+        uses: actions/checkout@v2
+
       - name: github actions API
         run: |
           gh release create "${GITHUB_REF#refs/tags/}" \
