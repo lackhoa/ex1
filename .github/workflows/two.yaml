@@ -9,15 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: making files
-        run: |
-          mkdir dir
-          mkdir dir/d
-          touch dir/d/a
 
       - name: github actions API
         run: |
-          curl \
-              -H "Accept: application/vnd.github.v3+json" \
-              https://api.github.com/repos/lackhoa/ex1/actions/runs | jq
+          gh api repos/Hatch-Arcade/hatch-gl-streaming/actions/runs?per_page=1 --jq '.workflow_runs.[].id'
 
