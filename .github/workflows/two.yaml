@@ -19,5 +19,5 @@ jobs:
         run: |
           curl \
               -H "Accept: application/vnd.github.v3+json" \
-              https://api.github.com/repos/Hatch-Arcade/ex1/actions/runs | jq
+              https://api.github.com/repos/lackhoa/ex1/actions/runs | jq
 
