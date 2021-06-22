@@ -20,4 +20,4 @@ jobs:
               | select(.head_commit.id == "$HEAD_COMMIT_ID")'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HEAD_COMMIT_ID: ${{ toJSON(github.event.head_commit).id }}
+          HEAD_COMMIT_ID: ${{ toJSON(github.event.head_commit.id) }}
