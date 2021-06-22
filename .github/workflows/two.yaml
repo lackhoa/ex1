@@ -12,5 +12,7 @@ jobs:
 
       - name: github actions API
         run: |
-          gh api repos/Hatch-Arcade/hatch-gl-streaming/actions/runs?per_page=1 --jq '.workflow_runs.[].id'
+          gh release create "${GITHUB_REF#refs/tags/}" \
+              --title "$(git show --no-patch --format=%s)" \
+          # gh api repos/Hatch-Arcade/hatch-gl-streaming/actions/runs?per_page=1 --jq '.workflow_runs.[].id'
 
