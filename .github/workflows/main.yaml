@@ -12,4 +12,6 @@ jobs:
 
       - name: echo event
         run: |
-          echo "${{ toJSON(github.event) }}"
+          echo "${HEAD_COMMIT}"
+        env:
+          HEAD_COMMIT: ${{ toJSON(github.event.head_commit) }}
