@@ -13,10 +13,11 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v2
 
-      - name: echo event
+      - name: gha API
         run: |
-          gh api repos/lackhoa/ex1/actions/runs \
-              --jq '.workflow_runs.[].compare(.head_commit.id == "${{ env.HEAD_COMMIT_ID }}")'
+          gh api repos/lackhoa/ex1/actions/runs | jq --arg HEAD_COMMIT_ID "$HEAD_COMMIT_ID" '
+              .workflow_runs[]
+              | select(.head_commit.id == "${{ env.HEAD_COMMIT_ID }}")'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEAD_COMMIT_ID: ${{ toJSON(github.event.head_commit).id }}
