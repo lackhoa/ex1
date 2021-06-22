@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo
-        run: Dont have to do anything
+        run: echo Dont have to do anything
