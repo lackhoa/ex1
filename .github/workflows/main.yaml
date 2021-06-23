@@ -9,19 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: set env
+        uses: echo "X=2" >> $GITHUB_ENV
+      - name: echo env
+        uses: echo $X
+    outputs:
+      X: ${{ env.X }}
 
-      - name: checkout repo
-        uses: actions/checkout@v2
-
-      - name: gha API
-        run: |
-          export HEAD_COMMIT_ID=${{ toJSON(github.event.head_commit.id) }}
-          RUN_TWO_ID=$(gh api repos/lackhoa/ex1/actions/runs | jq '
-              .workflow_runs[]
-              | select(.head_commit.id == env.HEAD_COMMIT_ID)
-              | select(.name == "Two")
-              | .id')
-          echo "Rerunning $RUN_TWO_ID"
-          gh run rerun $RUN_TWO_ID
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - echo ${{ needs.build.outputs.X }}
