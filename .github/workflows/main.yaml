@@ -9,10 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: set env
-        uses: echo "X=2" >> $GITHUB_ENV
-      - name: echo env
-        uses: echo $X
+      - uses: echo "X=2" >> $GITHUB_ENV
+      - uses: echo $X
     outputs:
       X: ${{ env.X }}
 
@@ -20,4 +18,4 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - echo ${{ needs.build.outputs.X }}
+      - run: echo ${{ needs.build.outputs.X }}
