@@ -17,7 +17,13 @@ jobs:
 
   deploy:
     needs: build
-    if: true
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ needs.build.outputs.X }}
+
+  final:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Hello
