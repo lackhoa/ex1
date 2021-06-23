@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo "X=2" >> $GITHUB_ENV
@@ -16,6 +17,7 @@ jobs:
 
   deploy:
     needs: build
+    if: true
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ needs.build.outputs.X }}
