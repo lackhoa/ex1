@@ -7,23 +7,7 @@ on:
 
 jobs:
   build:
-    if: false
     runs-on: ubuntu-latest
     steps:
-      - run: echo "X=2" >> $GITHUB_ENV
-      - run: echo $X
-    outputs:
-      X: ${{ env.X }}
-
-  deploy:
-    needs: build
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ needs.build.outputs.X }}
-
-  final:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo Hello
+      - run: sudo apt-get install -y ccache
+      - run: ccache --version
