@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - '**'
+  schedule:
+    cron: "*/5 * * * *"
 
 jobs:
   build:
-    if: false
     runs-on: ubuntu-latest
     steps:
-      - run: echo hello
-        if: always()
+      - run: echo ${{ github.event_name }}
