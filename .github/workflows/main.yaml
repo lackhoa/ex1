@@ -14,4 +14,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.inputs.message }}
+      - run: echo ${{ github.event_name }}
