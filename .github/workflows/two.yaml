@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - '**'
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        run: echo Dont have to do anything
+      - uses: actions/checkout@v2
+      - run: gh workflow run main.yaml -f message='hello from cronjob'

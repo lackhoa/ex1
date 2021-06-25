@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - '**'
-  schedule:
-    - cron: "0 0 * * *"  # At 12:00
+  workflow_dispatch:
+    inputs:
+      message:
+        required: true
+        default: 'hello world'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event_name }}
+      - run: echo ${{ github.event.inputs.message }}
