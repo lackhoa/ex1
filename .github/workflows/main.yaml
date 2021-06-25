@@ -16,6 +16,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $GH
+      - run: echo $GH | jq
         env:
           GH: ${{ toJSON(github) }}
