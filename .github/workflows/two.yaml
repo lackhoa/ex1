@@ -13,3 +13,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: gh workflow run main.yaml -f message='hello from cronjob'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
