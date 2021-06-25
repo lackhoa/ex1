@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - '**'
+  schedule:
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       message:
@@ -14,4 +16,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event_name }}
+      - run: echo $GH
+        env:
+          GH: ${{ toJSON(github) }}
