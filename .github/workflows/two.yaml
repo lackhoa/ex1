@@ -1,5 +1,8 @@
 name: Two
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
