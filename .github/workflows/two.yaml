@@ -1,7 +1,7 @@
 name: Two
 
 permissions:
-  contents: write
+  actions: write
 
 on:
   push:
