@@ -14,14 +14,4 @@ jobs:
   pre:
     runs-on: ubuntu-latest
     steps:
-      - run: echo X=X >> $GITHUB_ENV
-      - run: exit 1
-    outputs:
-      X: ${{ env.X }}
-
-  build:
-    needs: pre
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ needs.pre.outputs.X }}
+      - run: echo $GITHUB_REF
