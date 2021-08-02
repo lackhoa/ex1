@@ -11,8 +11,17 @@ on:
         default: 'hello world'
 
 jobs:
-  build:
+  pre:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ contains('onetwo', 'hello') }}
-      - run: echo ${{ contains('onetwo', 'net') }}
+      - run: echo X=X >> $GITHUB_ENV
+      - run: exit 1
+    outputs:
+      X: ${{ env.X }}
+
+  build:
+    needs: pre
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ needs.pre.outputs.X }}
