@@ -14,4 +14,5 @@ jobs:
   pre:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $GITHUB_REF
+      - run: sudo apt-get install -y apksigner
+      - run: apksigner --help
