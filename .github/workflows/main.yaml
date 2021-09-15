@@ -14,5 +14,6 @@ jobs:
   pre:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt-get install -y apksigner
-      - run: apksigner --help
+      - run: ls this-file-does-not-exist
+        continue-on-error: true
+      - run: echo This still runs!
