@@ -14,6 +14,4 @@ jobs:
   pre:
     runs-on: ubuntu-latest
     steps:
-      - run: ls this-file-does-not-exist
-      - run: echo This still runs!
-        if: always()
+      - run: aws --version
