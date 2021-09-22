@@ -11,7 +11,27 @@ on:
         default: 'hello world'
 
 jobs:
-  pre:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [a, b, c]
+
+    outputs:
+      deploy-url-a: ${{ steps.deploy-url.outputs.a }}
+      deploy-url-b: ${{ steps.deploy-url.outputs.b }}
+      deploy-url-c: ${{ steps.deploy-url.outputs.c }}
+
     steps:
-      - run: aws --version
+      - id: deploy-url
+        run: echo '::set-output name=${{ matrix.app }}::${{ matrix.app }}'
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+
+    steps:
+      - env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: echo "$NEEDS"
