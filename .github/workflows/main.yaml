@@ -19,6 +19,7 @@ jobs:
           sleep 5
 
   test:
+    needs: build
     if: always() && !cancelled()
     runs-on: ubuntu-latest
     steps:
