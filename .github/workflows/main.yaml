@@ -12,6 +12,14 @@ on:
 
 jobs:
   build:
+    if: always() && !cancled()
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sleep 5
+
+  test:
+    if: always() && !cancled()
     runs-on: ubuntu-latest
     steps:
       - run: |
