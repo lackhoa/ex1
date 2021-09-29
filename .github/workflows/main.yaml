@@ -16,12 +16,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          sleep 5
-
-  test:
-    needs: build
-    if: true
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          sleep 5
+          ./cleanup-old-amis.py
