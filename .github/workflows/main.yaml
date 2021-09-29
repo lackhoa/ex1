@@ -20,10 +20,8 @@ jobs:
 
   test:
     needs: build
-    if: always() && !cancelled()
+    if: true
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ (github.event.inputs.empty_ccache == 'true')
-                   || (github.event_name == 'schedule')
-                   || (env.BUILD_DEPS == 'true') }}
+          sleep 5
