@@ -19,8 +19,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install botocore
-        run: |
-          pip install boto3
-
-      - run: |
-          ./cleanup-old-amis.py
+        env:
+          X: 5
+        run: test.sh
