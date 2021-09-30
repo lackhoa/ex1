@@ -21,4 +21,4 @@ jobs:
       - name: Install botocore
         env:
           X: 5
-        run: test.sh
+        run: ./test.sh
