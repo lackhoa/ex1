@@ -14,8 +14,11 @@ on:
         default: 'hello world'
 
 jobs:
+  strategy:
+    matrix:
+      name: [one, two]
   build:
-    if: always() && !cancelled()
+    if: matrix['name'] == one
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
