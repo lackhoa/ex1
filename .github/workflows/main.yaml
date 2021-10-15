@@ -18,10 +18,10 @@ jobs:
     strategy:
       matrix:
         name: [one, two]
-    if: matrix['name'] == one
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
+        if: matrix['name'] == one
         uses: actions/checkout@v2
 
       - name: Install botocore
