@@ -14,10 +14,10 @@ on:
         default: 'hello world'
 
 jobs:
-  strategy:
-    matrix:
-      name: [one, two]
   build:
+    strategy:
+      matrix:
+        name: [one, two]
     if: matrix['name'] == one
     runs-on: ubuntu-latest
     steps:
