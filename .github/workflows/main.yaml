@@ -18,10 +18,11 @@ jobs:
     strategy:
       matrix:
         name: [one, two]
+        one-value: 1
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        if: matrix['name'] == 'one'
+        if: matrix[joint([matrix['name'], value], '-')] == '1'
         uses: actions/checkout@v2
 
       - name: Install botocore
