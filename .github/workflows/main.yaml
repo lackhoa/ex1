@@ -25,4 +25,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: echo one
-        run: echo ${{ matrix[joint([matrix['name'], value], '-')] }}
+        run: echo ${{ matrix[join([matrix['name'], value], '-')] }}
