@@ -19,10 +19,11 @@ jobs:
       matrix:
         name: [one, two]
         one-value: '1'
+        two-value: '2'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
       - name: echo one
-        run: echo ${{ matrix[join([matrix['name'], value], '-')] }}
+        run: echo ${{ matrix[format('{0}-value', matrix.name)] }}
