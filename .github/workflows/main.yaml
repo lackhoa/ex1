@@ -18,8 +18,8 @@ jobs:
     strategy:
       matrix:
         name: [one, two]
-        one-value: '1'
-        two-value: '2'
+        one-value: [ '1' ]
+        two-value: [ '2' ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
