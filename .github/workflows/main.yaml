@@ -25,5 +25,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: echo one
+      - name: echo 1 or 2
         run: echo ${{ matrix[format('{0}-value', matrix.name)] }}
+
+      - name: echo matrix name
+        run: echo $MATRIX_NAME
