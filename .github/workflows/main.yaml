@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        if: matrix['name'] == one
+        if: matrix['name'] == 'one'
         uses: actions/checkout@v2
 
       - name: Install botocore
