@@ -14,12 +14,14 @@ on:
         default: 'hello world'
 
 jobs:
+  runs-on: ubuntu-latest
   a:
     if: false
     steps:
     - run: echo hello
 
 b:
+  runs-on: ubuntu-latest
   needs:
     - a
   if: needs.a.result != 'skipped'
