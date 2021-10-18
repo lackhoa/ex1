@@ -33,6 +33,6 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - b
-    if: always() && (needs.b.result == 'skipped')
+    if: (needs.b.result == 'skipped')
     steps:
     - run: echo goodbye
