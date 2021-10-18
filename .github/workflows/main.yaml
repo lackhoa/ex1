@@ -16,3 +16,5 @@ on:
 jobs:
   call-workflow-1:
     uses: lackhoa/ex1/.github/workflows/two.yaml@master
+    with:
+      username: hello

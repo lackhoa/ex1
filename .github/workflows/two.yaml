@@ -6,9 +6,6 @@ on:
       username:
         required: true
         type: string
-    secrets:
-      token:
-        required: true
 
 jobs:
   example_job:
