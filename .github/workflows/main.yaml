@@ -14,7 +14,14 @@ on:
         default: 'hello world'
 
 jobs:
-  call-workflow-1:
-    uses: lackhoa/ex1/.github/workflows/two.yaml@master
-    with:
-      username: hello
+  a:
+    if: false
+    steps:
+    - run: echo hello
+
+b:
+  needs:
+    - a
+  if: needs.a.result != 'skipped'
+  steps:
+  - run: echo goodbye
