@@ -27,4 +27,4 @@ jobs:
 
       - env:
           X: We are great!
-        run: echo ${{ env.X }}
+        run: echo ${{ env.X  }}
