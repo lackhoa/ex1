@@ -16,7 +16,7 @@ on:
 jobs:
   a:
     runs-on: ubuntu-latest
-    if: true
+    if: fales
     steps:
     - uses: actions/checkout@v2
     - run: echo hello
@@ -26,5 +26,13 @@ jobs:
     needs:
       - a
     if: needs.a.result != 'skipped'
+    steps:
+    - run: echo goodbye
+
+  c:
+    runs-on: ubuntu-latest
+    needs:
+      - a
+    if: (needs.b.result == 'skipped') || (needs.b.result == 'success')
     steps:
     - run: echo goodbye
