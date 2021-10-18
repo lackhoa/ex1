@@ -12,4 +12,10 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - run: echo Hello from two.yaml
+      - run: echo Hello > hello.txt
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: art
+          path: hello.txt
+          retention-days: 14
