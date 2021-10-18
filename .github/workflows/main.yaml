@@ -25,41 +25,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: echo matrix name
-        env:
+      - env:
           X: We are great!
-        run: "./test.sh"
-
-  even-more:
-    runs-on: ubuntu-latest
-    if: |
-      (true
-      || true)
-
-      && false
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: echo matrix name
-        env:
-          X: We are great!
-        run: "./test.sh"
-
-
-
-  build:
-    runs-on: ubuntu-latest
-    if: |
-      true
-      || true
-
-      && true
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: echo matrix name
-        env:
-          X: We are great!
-        run: "./test.sh"
+        run: echo ${{ env.X }}
