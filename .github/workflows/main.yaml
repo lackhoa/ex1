@@ -25,14 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - a
-    if: needs.a.result != 'skipped'
-    steps:
-    - run: echo goodbye
-
-  c:
-    runs-on: ubuntu-latest
-    needs:
-      - b
-    if: (needs.b.result == 'skipped')
+    if: (needs.a.result == 'skipped')
     steps:
     - run: echo goodbye
