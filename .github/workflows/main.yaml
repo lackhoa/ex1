@@ -16,8 +16,9 @@ on:
 jobs:
   a:
     runs-on: ubuntu-latest
-    if: false
+    if: true
     steps:
+    - uses: actions/checkout@v2
     - run: echo hello
 
   b:
