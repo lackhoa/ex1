@@ -14,17 +14,5 @@ on:
         default: 'hello world'
 
 jobs:
-  more:
-    runs-on: ubuntu-latest
-    if: |
-      true
-      || (true
-
-      && false)
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - env:
-          X: We are great!
-        run: echo ${{ env.X  }}
+  call-workflow-1:
+    uses: lackhoa/ex1/.github/workflows/two.yaml@172239021f7ba04fe7327647b213799853a9eb89

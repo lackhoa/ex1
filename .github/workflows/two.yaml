@@ -1,11 +1,21 @@
-name: Two
+name: Reusable workflow example
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
 
 jobs:
-  build:
+  example_job:
+    name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: echo hello world
+      - uses: ./.github/actions/my-action@v1
+        with:
+          username: ${{ inputs.username }}
+          token: ${{ secrets.token }}
