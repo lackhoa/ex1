@@ -15,4 +15,4 @@ on:
 
 jobs:
   call-workflow-1:
-    uses: lackhoa/ex1/.github/workflows/two.yaml@172239021f7ba04fe7327647b213799853a9eb89
+    uses: lackhoa/ex1/.github/workflows/two.yaml
