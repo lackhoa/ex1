@@ -15,16 +15,10 @@ on:
 
 jobs:
   a:
-    runs-on: ubuntu-latest
+    matrix:
+      runs-on: ['ubuntu-latest']
+    runs-on: ${{ matrix.runs-on }}
     if: false
     steps:
-    - uses: actions/checkout@v2
-    - run: echo hello
-
-  b:
-    runs-on: ubuntu-latest
-    needs:
-      - a
-    if: always() && (needs.a.result == 'success')
-    steps:
-    - run: echo goodbye
+      -
+      - run echo ${{ github.workspace }}
