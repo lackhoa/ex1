@@ -15,10 +15,6 @@ on:
 
 jobs:
   a:
-    matrix:
-      runs-on: ['ubuntu-latest']
-    runs-on: ${{ matrix.runs-on }}
-    if: false
+    runs-on: 'macos-12'
     steps:
-      -
-      - run echo ${{ github.workspace }}
+      - run: echo ${{ github.workspace }}
