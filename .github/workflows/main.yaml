@@ -15,6 +15,6 @@ on:
 
 jobs:
   a:
-    runs-on: 'macos-12'
+    runs-on: 'macos-11'
     steps:
       - run: echo ${{ github.workspace }}
