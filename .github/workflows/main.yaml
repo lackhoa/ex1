@@ -17,7 +17,10 @@ jobs:
   a:
     runs-on: 'macos-11'
     steps:
-      - run: brew install --cask android-commandlinetools
-      - run: |
-          export PATH=/opt/android-sdk/cmdline-tools/latest/bin:$PATH
-          (while sleep 0.1; do echo "y"; done) | sdkmanager --licenses
+      - run: echo hello > /tmp/hello.txt
+      - name: Upload sysroot to Github Actions artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: glow-dependencies-sysroot
+          path: /tmp/hello.txt
+          retention-days: 14
