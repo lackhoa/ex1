@@ -17,4 +17,6 @@ jobs:
   a:
     runs-on: 'macos-11'
     steps:
-      - run: yes | sdkmanager --licenses
+      - run:
+          export PATH=/opt/android-sdk/cmdline-tools/latest/bin:$PATH
+          yes | sdkmanager --licenses
