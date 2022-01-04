@@ -17,4 +17,4 @@ jobs:
   a:
     runs-on: 'macos-11'
     steps:
-      - run: echo ${{ github.workspace }}
+      - run: brew update
