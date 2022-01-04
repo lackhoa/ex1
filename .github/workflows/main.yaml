@@ -20,4 +20,4 @@ jobs:
       - run: brew install --cask android-commandlinetools
       - run: |
           export PATH=/opt/android-sdk/cmdline-tools/latest/bin:$PATH
-          (while sleep 3; do echo "y"; done) | sdkmanager --licenses
+          (while sleep 0.1; do echo "y"; done) | sdkmanager --licenses
