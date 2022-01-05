@@ -17,6 +17,6 @@ jobs:
   a:
     runs-on: 'macos-11'
     steps:
-      - run: false
+      - run: 'false'
         on-error: continue
-      run: true
+      - run: 'true'
