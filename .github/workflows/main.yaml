@@ -17,10 +17,7 @@ jobs:
   a:
     runs-on: 'macos-11'
     steps:
-      - run: echo hello > /tmp/hello.txt
-      - name: Upload sysroot to Github Actions artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: glow-dependencies-sysroot
-          path: /private/tmp/hello.txt
-          retention-days: 14
+      - run: echo ${{
+        true && true
+        && false
+        }} > /tmp/hello.txt
