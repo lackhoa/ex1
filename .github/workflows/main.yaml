@@ -17,7 +17,4 @@ jobs:
   a:
     runs-on: 'macos-11'
     steps:
-      - run: 'false'
-      - run: 'true'
-        if: always()
-      - run: 'true'
+      - run: xcodebuild -showsdks
