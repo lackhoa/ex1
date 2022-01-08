@@ -16,6 +16,7 @@ on:
         required: true
         default: 'hello world'
 
+jobs:
   a:
     timeout-minutes: '5'
     runs-on: ubuntu-latest
