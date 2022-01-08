@@ -9,16 +9,13 @@ on:
       - '**'
   workflow_dispatch:
     inputs:
-      timeout:
-        required: true
-        default: '0'
       message:
         required: true
         default: 'hello world'
 
 jobs:
   a:
-    timeout-minutes: '5'
+    timeout-minutes: ${{ fromJSON('{true: 5; false: 10}')[true] }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
