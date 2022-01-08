@@ -9,14 +9,17 @@ on:
       - '**'
   workflow_dispatch:
     inputs:
+      timeout:
+        required: true
+        default: '0'
       message:
         required: true
         default: 'hello world'
 
-jobs:
   a:
-    timeout-minutes: ${{ 5 }}
-    runs-on: 'macos-11'
+    needs: b
+    timeout-minutes: '5'
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
