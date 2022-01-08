@@ -15,10 +15,12 @@ on:
 
 jobs:
   a:
+    timeout-minutes: ${{ 5 }}
     runs-on: 'macos-11'
     steps:
     - uses: actions/checkout@v2
 
     - name: Setup tmate session
+      if: failed()
       uses: mxschmitt/action-tmate@v3
 
