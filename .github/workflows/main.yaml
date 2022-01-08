@@ -20,9 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - run: echo ${{ fromJSON('5') }}
-
     - name: Setup tmate session
-      if: failure()
       uses: mxschmitt/action-tmate@v3
+      timeout-minutes: 0
 
