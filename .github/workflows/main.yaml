@@ -15,7 +15,7 @@ on:
 
 jobs:
   a:
-    timeout-minutes: ${{ fromJSON('{true: 5; false: 10}')[true] }}
+    timeout-minutes: ${{ fromJSON('{true: 5; false: 10}') }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
