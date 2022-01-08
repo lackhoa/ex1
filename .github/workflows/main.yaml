@@ -17,4 +17,8 @@ jobs:
   a:
     runs-on: 'macos-11'
     steps:
-      - run: xcodebuild -showsdks
+    - uses: actions/checkout@v2
+
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
