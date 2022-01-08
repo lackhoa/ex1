@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - run: echo ${{ fromJSON('{true: 5; false: 10}')[true] }}
+    - run: echo ${{ fromJSON('5') }}
 
     - name: Setup tmate session
       if: failure()
