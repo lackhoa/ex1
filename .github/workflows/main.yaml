@@ -16,11 +16,13 @@ on:
 jobs:
   a:
     timeout-minutes: 5
-    runs-on: ubuntu-latest
+    runs-on: macos-11
     steps:
-    - uses: actions/checkout@v2
+    # - uses: actions/checkout@v2
 
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-      timeout-minutes: 0
+    - name: Disable time sync
+      run: |
+        sudo systemsetup -setusingnetworktime off
+        sudo rm -rf /etc/ntp.conf
+
 
