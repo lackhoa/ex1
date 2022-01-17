@@ -16,13 +16,7 @@ on:
 jobs:
   a:
     timeout-minutes: 5
-    runs-on: macos-11
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-
-    # - name: Disable time sync
-    #   run: |
-    #     sudo systemsetup -setusingnetworktime off
-    #     sudo rm -rf /etc/ntp.conf
-
-
+    - run: echo ${{ contains(github.event.head_commit.message, 'test string') }}
+    - run: echo ${{ contains(github.event.head_commit.message, 'does not exist') }}
