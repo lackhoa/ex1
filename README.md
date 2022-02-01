@@ -7,4 +7,5 @@ More changes for the fans!
 This is good with master
 This is still good with master
 This is still pretty good with master
+bad with master
 
