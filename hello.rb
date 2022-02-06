@@ -1,5 +1,5 @@
 #! /usr/bin/env ruby
 
 def hello
-  puts 'dev'
+  puts 'master dev'
 end
