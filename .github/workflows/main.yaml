@@ -26,4 +26,4 @@ jobs:
             echo X is true
         fi
       env:
-        X: true == false
+        X: ${{ true == false }}
