@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
+        echo X is actually $X
         if [ "$X" == 'false' ]; then
             echo X is false
         else
