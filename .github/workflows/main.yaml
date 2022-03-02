@@ -18,5 +18,11 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-    - run: echo ${{ contains(github.event.head_commit.message, 'test string') }}
-    - run: echo ${{ contains(github.event.head_commit.message, 'does not exist') }}
+    - run: |
+        if [ "$X" == 'false' ]; then
+            echo X is false
+        else
+            echo X is true
+        fi
+      env:
+        X: true == false
