@@ -1,28 +1,12 @@
 name: One
 
-env:
-  X: 5
-
 on:
   push:
     branches: ['**']
-  workflow_dispatch:
-    inputs:
-      message:
-        required: true
-        default: 'hello world'
 
 jobs:
   a:
-    timeout-minutes: 5
+    name: one-a
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo X is actually $X
-        if [ "$X" == 'false' ]; then
-            echo X is false
-        else
-            echo X is true
-        fi
-      env:
-        X: ${{ true == false }}
+    - run: exit 1

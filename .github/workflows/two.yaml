@@ -5,8 +5,8 @@ on:
     branches: ['**']
 
 jobs:
-  example_job:
-    name: Pass input and secrets to my-action
+  a:
+    name: two-a
     runs-on: ubuntu-latest
     steps:
       - run: exit 1

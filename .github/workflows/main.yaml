@@ -8,16 +8,9 @@ on:
 
 jobs:
   a:
+    name: main-a
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo X is actually $X
-        if [ "$X" == 'false' ]; then
-            echo X is false
-        else
-            echo X is true
-        fi
-      env:
-        X: ${{ true == false }}
+        echo "${{ toJSON(github.event.workflow_run) }}"
