@@ -11,3 +11,7 @@ jobs:
   two:
     name: two
     uses: ./.github/workflows/two.yaml
+  main:
+    runs-on: ubuntu-latest
+    steps:
+    - run: wc -c <(echo ${{ secrets.PAT }})
