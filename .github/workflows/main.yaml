@@ -6,8 +6,8 @@ on:
 
 jobs:
   one:
-    name: main-one
+    name: one
     uses: ./.github/workflows/one.yaml
   two:
-    name: main-two
+    name: two
     uses: ./.github/workflows/two.yaml
