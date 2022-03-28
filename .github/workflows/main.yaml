@@ -2,7 +2,7 @@ name: workflow_run triggered
 
 on:
   workflow_run:
-    workflows: [One, two]
+    workflows: [one, two]
     types: [completed]
     branches: [master]
 

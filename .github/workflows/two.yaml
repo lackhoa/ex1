@@ -1,4 +1,4 @@
-name: Two
+name: two
 
 on:
   push:
@@ -9,4 +9,4 @@ jobs:
     name: two-a
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
+    - run: exit 1
