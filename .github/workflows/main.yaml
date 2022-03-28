@@ -2,14 +2,14 @@ name: workflow_run triggered
 
 on:
   workflow_run:
-    workflows: [one, two]
+    workflows: [two, on]
     types: [completed]
     branches: [master]
 
 jobs:
   a:
     name: main-a
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
     - run: |
