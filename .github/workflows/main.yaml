@@ -14,4 +14,10 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-    - run: wc -c <(echo ${{ secrets.PAT }})
+    - run: actions/download-artifacts@v3
+      with:
+        name: one
+    - run: actions/download-artifacts@v3
+      with:
+        name: two
+    - run: ls -lR
