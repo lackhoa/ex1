@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo hello > hello.txt
-    - uses: actions/upload-artifacts@v3
+    - uses: actions/upload-artifact@v3
       with:
         name: one
         path: .
