@@ -1,14 +1,20 @@
-name: workflow_run triggered
+name: One
+
+env:
+  X: 5
 
 on:
-  workflow_run:
-    workflows: [One, two]
-    types: [completed]
-    branches: [master]
+  push:
+    branches:
+      - '**'
+  workflow_dispatch:
+    inputs:
+      message:
+        required: true
+        default: 'hello world'
 
 jobs:
   a:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
