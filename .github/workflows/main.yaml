@@ -1,13 +1,13 @@
-name: check_suite triggered
+name: main
 
 on:
-  check_suite:
-    types: [completed]
+  push:
+    branches: ['**']
 
 jobs:
-  a:
-    name: main-a
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo "${{ toJSON(github.event.check_suite) }}"
+  one:
+    name: main-one
+    uses: ./.github/workflows/one.yaml
+  two:
+    name: main-two
+    uses: ./.github/workflows/two.yaml

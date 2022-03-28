@@ -1,8 +1,7 @@
 name: one
 
 on:
-  push:
-    branches: ['**']
+  workflow_call:
 
 jobs:
   a:
