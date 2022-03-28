@@ -8,7 +8,7 @@ jobs:
     name: two-a
     runs-on: ubuntu-latest
     steps:
-    - run: exit 0
+    - run: echo hello > hello.txt
     - uses: actions/upload-artifact@v3
       with:
         name: two
