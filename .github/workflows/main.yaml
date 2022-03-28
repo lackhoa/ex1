@@ -1,4 +1,4 @@
-name: workflow_run triggered
+name: check_suite triggered
 
 on:
   check_suite:
