@@ -9,4 +9,4 @@ jobs:
     name: one-a
     runs-on: ubuntu-latest
     steps:
-    - run: ehco hello
+    - run: echo hello
