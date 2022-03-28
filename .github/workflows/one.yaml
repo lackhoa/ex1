@@ -19,4 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        exit 1
+        echo X is actually $X
+        if [ "$X" == 'false' ]; then
+            echo X is false
+        else
+            echo X is true
+        fi
+      env:
+        X: ${{ true == false }}
