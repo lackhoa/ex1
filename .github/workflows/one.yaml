@@ -5,8 +5,9 @@ on:
   workflow_call:
     inputs:
       x:
-        default: '5'
+        default: false
         required: false
+        type: boolean
 
 jobs:
   a:
