@@ -3,6 +3,10 @@ name: one
 on:
   push:
   workflow_call:
+    inputs:
+      x:
+        default: '5'
+        required: false
 
 jobs:
   a:
