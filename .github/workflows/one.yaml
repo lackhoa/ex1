@@ -14,4 +14,4 @@ jobs:
     name: one-a
     runs-on: ubuntu-latest
     steps:
-    - run: echo "${{ toJSON(inputs) }}"
+    - run: echo "${{ toJSON(inputs.x) }}"
