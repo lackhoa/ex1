@@ -12,7 +12,6 @@ jobs:
   #   name: two
   #   uses: ./.github/workflows/two.yaml
   main:
-    needs: [one, two]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/setup-go@v3
