@@ -14,18 +14,20 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+
+    - name: Cache go bin
+      id: cache-go-bin
+      uses: actions/cache@v3
+      with:
+        path: ~/go/bin
+        key: ${{ runner.os }}
+
     - uses: actions/setup-go@v3
+      if: steps.cache-go-bin.outputs.cache-hit != 'true'
 
     - name: Install aws-amicleaner
+      if: steps.cache-go-bin.outputs.cache-hit != 'true'
       run: go install github.com/trussworks/truss-aws-tools/...
 
     - name: ls
-      run: ls ~/go/bin/
-
-    - name: something else
-      run: |
-        echo running ami-cleaner
-        ami-cleaner
-
-        echo ~/go/bin/ami-cleaner
-        ~/go/bin/ami-cleaner
+      run: ls ~/go/bin
