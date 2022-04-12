@@ -5,23 +5,23 @@ on:
     branches: ['**']
 
 jobs:
-  one:
-    name: one
-    uses: ./.github/workflows/one.yaml
-  two:
-    name: two
-    uses: ./.github/workflows/two.yaml
+  # one:
+  #   name: one
+  #   uses: ./.github/workflows/one.yaml
+  # two:
+  #   name: two
+  #   uses: ./.github/workflows/two.yaml
   main:
     needs: [one, two]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/setup-go@v3
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
     - name: Install aws-amicleaner
       run: go get -u github.com/trussworks/truss-aws-tools/...
-
-    - name: ls
-      run: ~/go/bin
 
     - name: Cleanup old AMIs
       run: |
