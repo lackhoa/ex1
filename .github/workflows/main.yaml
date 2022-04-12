@@ -27,7 +27,7 @@ jobs:
 
     - name: Install aws-amicleaner
       if: steps.cache-go-bin.outputs.cache-hit != 'true'
-      run: go install github.com/trussworks/truss-aws-tools/...
+      run: go get github.com/trussworks/truss-aws-tools/...
 
     - name: ls
       run: ls ~/go/bin
