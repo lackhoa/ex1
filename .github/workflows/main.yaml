@@ -17,12 +17,15 @@ jobs:
     - uses: actions/setup-go@v3
 
     - name: Install aws-amicleaner
-      run: go get -u github.com/trussworks/truss-aws-tools/...
+      run: go install github.com/trussworks/truss-aws-tools/...
 
     - name: ls
       run: ls ~/go/bin/
 
-    - name: Cleanup old AMIs
+    - name: something else
       run: |
-        ~/go/bin/ami-cleaner --unused --region "$REGION" --days=30 -D \
-        --tag-key="AmiType" --tag-value="ubuntu-amd64-eks-nvidia-wine"
+        echo running ami-cleaner
+        ami-cleaner
+
+        echo ~/go/bin/ami-cleaner
+        ~/go/bin/ami-cleaner
