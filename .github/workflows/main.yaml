@@ -16,13 +16,13 @@ jobs:
     steps:
     - uses: actions/setup-go@v3
 
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-
     - name: Install aws-amicleaner
       run: go get -u github.com/trussworks/truss-aws-tools/...
 
+    - name: ls
+      run: ls ~/go/bin/
+
     - name: Cleanup old AMIs
       run: |
-        ami-cleaner --unused --region "$REGION" --days=30 -D \
+        ~/go/bin/ami-cleaner --unused --region "$REGION" --days=30 -D \
         --tag-key="AmiType" --tag-value="ubuntu-amd64-eks-nvidia-wine"
