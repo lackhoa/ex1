@@ -1,7 +1,6 @@
 name: one
 
 on:
-  push:
   workflow_call:
     inputs:
       x:

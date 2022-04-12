@@ -31,3 +31,6 @@ jobs:
 
     - name: ls
       run: ls ~/go/bin
+
+    - name: ls
+      run: ~/go/bin/ami-cleaner
