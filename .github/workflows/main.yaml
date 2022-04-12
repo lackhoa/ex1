@@ -15,10 +15,15 @@ jobs:
     needs: [one, two]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/download-artifact@v3
-      with:
-        name: one
-    - uses: actions/download-artifact@v3
-      with:
-        name: two
-    - run: ls -lR
+    - uses: actions/setup-go@v3
+
+    - name: Install aws-amicleaner
+      run: go get -u github.com/trussworks/truss-aws-tools/...
+
+    - name: ls
+      run: ~/go/bin
+
+    - name: Cleanup old AMIs
+      run: |
+        ami-cleaner --unused --region "$REGION" --days=30 -D \
+        --tag-key="AmiType" --tag-value="ubuntu-amd64-eks-nvidia-wine"
