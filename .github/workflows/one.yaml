@@ -8,8 +8,6 @@ jobs:
     name: one-a
     runs-on: ubuntu-latest
     steps:
-    - run: echo hello > hello.txt
-    - uses: actions/upload-artifact@v3
-      with:
-        name: one
-        path: .
+    - run: exit 1
+    - if: always()
+      run: echo hello
